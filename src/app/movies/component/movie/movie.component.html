@@ -1,0 +1,42 @@
+<main>
+  <section class="main">
+    <div class="input">
+      <input
+        class="input__form>"
+        [formControl]="form"
+        (keyup.enter)="searchMovie(form.value)"
+      />
+
+      <button
+        class="input__btn"
+        type="button"
+        (click)="searchMovie(form.value)"
+      >
+        Search
+      </button>
+    </div>
+    <div class="movie-not-found" *ngIf="movieNotExists">
+      <h1>Movie name not found!</h1>
+      <img
+        src="../../../../assets/img/error.png"
+        alt="404 error illustration"
+      />
+    </div>
+    <div class="movies-list">
+      <div class="movies-list__details" *ngFor="let movie of movies">
+        <div class="movies-list__image">
+          <button
+            (click)="modal.toggle()"
+            (click)="searchMovieByImdbId(movie.imdbID)"
+          >
+            <img src="{{ movie.Poster }}" alt="{{ movie.Title }} poster" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-modal #modal>
+  <app-info-modal [modalData]="moviesModal"></app-info-modal>
+</app-modal>
