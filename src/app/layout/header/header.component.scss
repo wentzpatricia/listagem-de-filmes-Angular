@@ -1,0 +1,19 @@
+$background-gradient-color: #6c62ce, #ff0edc;
+$font-color: #f2f2f2;
+
+.header {
+  background-image: radial-gradient(
+    circle farthest-corner at 7.2% 13.6%,
+    $background-gradient-color
+  );
+
+  &__title {
+    font-weight: lighter;
+    text-align: center;
+    padding: 25px;
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin: 0px;
+    color: $font-color;
+  }
+}
